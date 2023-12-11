@@ -31,4 +31,8 @@ def signup(request):
             except:
                 return HttpResponse("El usuario ya existe")
         else:
-            return HttpResponse("Contraseña no coincide")
+            return HttpResponse("Contraseñas no coinciden")
+
+
+def login(request):
+    return render(request, "login.html")
