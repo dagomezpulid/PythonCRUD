@@ -4,7 +4,6 @@ from django.contrib.auth.models import User
 from django.http import HttpResponse
 
 # Create your views here.
-# que visaje mi manito xd
 
 
 def home(request):
