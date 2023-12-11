@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.http import HttpResponse
@@ -27,12 +27,30 @@ def signup(request):
                     password=request.POST["password1"],
                 )
                 user.save()
-                return HttpResponse("Usuario creado")
+                return redirect("tasks")
             except:
-                return HttpResponse("El usuario ya existe")
+                return render(
+                    request,
+                    "signup.html",
+                    {
+                        "form": UserCreationForm,
+                        "error": "El usuario ya existe",
+                    },
+                )
         else:
-            return HttpResponse("Contraseñas no coinciden")
+            return render(
+                request,
+                "signup.html",
+                {
+                    "form": UserCreationForm,
+                    "error": "Las contraseñas no coinciden",
+                },
+            )
 
 
 def login(request):
     return render(request, "login.html")
+
+
+def tasks(request):
+    return render(request, "tasks.html")
