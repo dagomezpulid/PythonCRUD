@@ -43,3 +43,7 @@ def signout(request):
 
 def tasks(request):
     return render(request, "tasks.html")
+
+
+def create_task(request):
+    return render(request, "create_task.html")

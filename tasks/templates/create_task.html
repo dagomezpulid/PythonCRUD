@@ -1,0 +1,10 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+  <h1>Create Task</h1>
+
+  <form action="/tasks/create_task" method="POST">
+    {% error %}
+    {{ form.as_p }}
+  </form>
+{% endblock %}
