@@ -1,8 +1,8 @@
-<h1>HOME</h1>
+{% extends 'layouts/base.html' %}
 
-<div action="/signup/">
-  <button>Sign Up</button>
-</div>
-<div>
-  <button action="/login/">Log In</button>
-</div>
+{% block content %}
+  <h1>HOME</h1>
+  {% if user.is_authenticated %}
+    <h2>Has iniciado sesion</h2>
+  {% endif %}
+{% endblock %}

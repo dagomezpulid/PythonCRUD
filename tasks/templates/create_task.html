@@ -1,13 +1,11 @@
 {% extends 'layouts/base.html' %}
 
 {% block content %}
-  <h1>Sign Up</h1>
-
+  <h1>Create Task</h1>
   {{ error }}
-
-  <form action="/signup/" method="POST">
+  <form action="/create_task/" method="POST">
     {% csrf_token %}
     {{ form.as_p }}
-    <button>Sign Up</button>
+    <button>Guardar</button>
   </form>
 {% endblock %}
