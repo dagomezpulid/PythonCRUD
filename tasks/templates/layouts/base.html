@@ -18,27 +18,31 @@
           <a href="/">Home</a>
         </li>
       </ul>
-      <ul>
-        <li>
-          <a href="/tasks">Task</a>
-        </li>
-      </ul>
-
-      <ul>
-        <li>
-          <a href="/signup">Sign Up</a>
-        </li>
-      </ul>
       {% if user.is_authenticated %}
         <ul>
           <li>
             <a href="/signout">Log Out</a>
           </li>
         </ul>
+        <ul>
+          <li>
+            <a href="/tasks">Task</a>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <a href="/create_task">Create Task</a>
+          </li>
+        </ul>
       {% else %}
         <ul>
           <li>
             <a href="/login">Log In</a>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <a href="/signup">Sign Up</a>
           </li>
         </ul>
       {% endif %}
