@@ -30,15 +30,15 @@ def login(request):
             user = authenticate(request, username=username, password=password)
             if user:
                 auth_login(request, user)
-                return redirect("home")
+                return redirect("tasks")
     else:
         form = LoginForm()
     return render(request, "login.html", {"form": form})
 
 
-def logout(request):
+def signout(request):
     logout(request)
-    return redirect("login")
+    return redirect("home")
 
 
 def tasks(request):

@@ -23,27 +23,26 @@
           <a href="/tasks">Task</a>
         </li>
       </ul>
+
       <ul>
         <li>
           <a href="/signup">Sign Up</a>
         </li>
       </ul>
-
       {% if user.is_authenticated %}
         <ul>
           <li>
-            <a href="/logout">Log Out</a>
+            <a href="/signout">Log Out</a>
+          </li>
+        </ul>
+      {% else %}
+        <ul>
+          <li>
+            <a href="/login">Log In</a>
           </li>
         </ul>
       {% endif %}
-
-      <ul>
-        <li>
-          <a href="/login">Log In</a>
-        </li>
-      </ul>
     </nav>
-
     {% block content %}
 
     {% endblock %}
