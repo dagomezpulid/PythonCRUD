@@ -49,6 +49,13 @@ def tasks(request):
     return render(request, "tasks.html", {"tasks": tasks})
 
 
+def tasks_complete(request):
+    tasks = Task.objects.filter(
+        user=request.user, datecompleted__isnull=False
+    ).order_by("-datecompleted")
+    return render(request, "tasks.html", {"tasks": tasks})
+
+
 def create_task(request):
     if request.method == "GET":
         return render(request, "create_task.html", {"form": TaskForm})
@@ -91,4 +98,11 @@ def complete_task(request, task_id):
     if request.method == "POST":
         task.datecompleted = timezone.now()
         task.save()
-        return redirect("home")
+        return redirect("tasks")
+
+
+def delete_task(request, task_id):
+    task = get_object_or_404(Task, pk=task_id, user=request.user)
+    if request.method == "POST":
+        task.delete()
+        return redirect("tasks")
