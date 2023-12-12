@@ -26,4 +26,5 @@ urlpatterns = [
     path("signout/", views.signout, name="signout"),
     path("tasks/", views.tasks, name="tasks"),
     path("create_task/", views.create_task, name="create_task"),
+    path("task_detail/<int:task_id>", views.task_detail, name="task_detail"),
 ]

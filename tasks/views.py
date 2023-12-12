@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import UserCreationForm, LoginForm
 from django.contrib.auth import logout, authenticate
 from django.contrib.auth import login as auth_login
@@ -44,7 +44,7 @@ def signout(request):
 
 
 def tasks(request):
-    tasks = Task.objects.filter(user=request.user)
+    tasks = Task.objects.filter(user=request.user, datecompleted__isnull=True)
     return render(request, "tasks.html", {"tasks": tasks})
 
 
@@ -64,3 +64,8 @@ def create_task(request):
                 "create_task.html",
                 {"form": TaskForm, "error": "Ingrese una informacion valida"},
             )
+
+
+def task_detail(request, task_id):
+    task = get_object_or_404(Task, pk=task_id)
+    return render(request, "task_detail.html", {"task": task})
