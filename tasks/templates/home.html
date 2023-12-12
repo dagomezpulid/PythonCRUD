@@ -1,8 +1,17 @@
 {% extends 'layouts/base.html' %}
 
 {% block content %}
-  <h1>HOME</h1>
-  {% if user.is_authenticated %}
-    <h2>Has iniciado sesion</h2>
-  {% endif %}
+  <main class="container py-5">
+    <section class="card card-body">
+      <h1 class="display-1 text-center">Django App</h1>
+      {% if user.is_authenticated %}
+        <h2>Has iniciado sesion</h2>
+      {% endif %}
+      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga obcaecati neque corporis doloribus quidem odio fugiat qui similique exercitationem doloremque culpa autem alias, voluptatum, illum incidunt nobis accusantium at possimus?</p>
+      <div class="text-center">
+        <a class="btn btn-dark" href="/signup/">Sing Up</a>
+        <a class="btn btn-dark" href="/login">Log In</a>
+      </div>
+    </section>
+  </main>
 {% endblock %}
