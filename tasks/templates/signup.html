@@ -4,21 +4,20 @@
   <main class="container">
     <div class="row">
       <div class="col-md-4 offset-md-4 mt-5">
-        <form method="POST" class="card card-body">
+        <form action="/login/" method="POST" class="card card-body">
           <h1 class="text-center">Sign Up</h1>
-          {{ error }}
           {% csrf_token %}
           <div class="mb-3">
             <label for="username">Usuario:</label>
-            <input type="text" name="username" id="username" class="form-control" placeholder="Digita un nombre para el usuario" />
+            <input type="text" name="username" id="username" class="form-control" placeholder="Ingrese un nombre de usuario" />
           </div>
           <div class="mb-3">
             <label for="password1">Contraseña:</label>
-            <input type="password" name="password1" id="password1" class="form-control" placeholder="Escriba una contraseña" />
+            <input type="password" name="password1" id="password1" class="form-control" placeholder="Ingrese una contraseña" />
           </div>
           <div class="mb-3">
-            <label for="password2">Confirme la contraseña:</label>
-            <input type="password" name="password2" id="password2" class="form-control" placeholder="Reescriba la contraseña" />
+            <label for="password2">Confirmar contraseña:</label>
+            <input type="password" name="password2" id="password2" class="form-control" placeholder="Ingrese un nombre de usuario" />
           </div>
           <button class="btn btn-dark">Sign Up</button>
         </form>
